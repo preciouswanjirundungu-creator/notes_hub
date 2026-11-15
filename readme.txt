@@ -9,9 +9,9 @@ for units, and open learning-resource files.
 
 Current project files
 ---------------------
-index.html
-    Main website page. It contains the HTML structure, CSS styling, sample
-    unit data, semester filters, and search functionality.
+notes_hub.html
+    Main website page. It contains the HTML structure, CSS styling, semester
+    filters, search functionality, and the unit/resource catalog.
 
 readme.txt
     Project information and setup notes.
@@ -19,31 +19,31 @@ readme.txt
 How to preview
 --------------
 1. Download or clone the repository.
-2. Open index.html in a modern web browser.
+2. Open notes_hub.html in a modern web browser.
 3. Use the semester tabs to filter the displayed units.
 4. Enter a unit name in the search field to find a unit.
 
 Configure resource downloads
 ----------------------------
-The current index.html uses a placeholder storage address:
+The page uses this S3 storage base URL:
 
-https://YOUR-BUCKET.s3.YOUR-REGION.amazonaws.com/public/
+https://notes-hub-precious-2026.s3.eu-north-1.amazonaws.com/public/
 
-Before expecting downloads to work, replace the BASE value in index.html
-with the real public storage URL.
+The units list is currently empty because no learning resources have been
+uploaded yet. After uploading resources under the public/ prefix, add each
+unit and its exact object keys to the units array in notes_hub.html. For
+example, use a unique key such as Intro-to-Programming/Week-1-Notes.pdf
+when the object is stored in that folder.
 
-The sample unit names and PDF filenames are demonstration data. Update the
-units array in index.html with the actual units and resource filenames.
-Make sure each resource URL points to the correct file. Files with the same
-filename in different units may need separate folders or unique object keys
-to avoid linking every unit to the same document.
+Resources must be reachable by the browser at their HTTPS URLs. Do not put
+private credentials or secret keys in frontend files.
 
 Current functionality
 ---------------------
 - Responsive unit-card layout
 - Semester 1, Semester 2, and All filters
 - Search by unit name
-- Links to learning resources
+- Empty state until real unit and resource data is added
 
 Not yet implemented
 -------------------

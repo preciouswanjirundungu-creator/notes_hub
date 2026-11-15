@@ -161,28 +161,7 @@ var BASE = "https://notes-hub-precious-2026.s3.eu-north-1.amazonaws.com/public/"
 var sem = 0;
 var query = "";
 
-var units = [
-  {
-    name: "Intro to Programming",
-    sem: 1,
-    files: ["Week-1-Notes.pdf", "Week-2-Notes.pdf"]
-  },
-  {
-    name: "Calculus I",
-    sem: 1,
-    files: ["Week-1-Notes.pdf", "Week-2-Notes.pdf"]
-  },
-  {
-    name: "Networks",
-    sem: 2,
-    files: ["Week-1-Notes.pdf", "Week-2-Notes.pdf"]
-  },
-  {
-    name: "Databases",
-    sem: 2,
-    files: ["Week-1-Notes.pdf", "Week-2-Notes.pdf"]
-  }
-];
+var units = [];
 
 function setSem(n) {
   sem = n;
@@ -221,7 +200,10 @@ function render() {
   });
 
   if (box.innerHTML === '') {
-    box.innerHTML = '<p class="empty">No units found.</p>';
+    var message = units.length === 0
+      ? 'No learning resources are available yet.'
+      : 'No units found.';
+    box.innerHTML = '<p class="empty">' + message + '</p>';
   }
 }
 
